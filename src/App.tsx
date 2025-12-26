@@ -91,8 +91,10 @@ function App() {
                   >
                     오늘의 강의 시청
                   </button>
+
+                  {/* 요청하신 대로 텍스트만 '학습노트 보기'로 변경했습니다 */}
                   <button className="w-full py-3 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all">
-                    학습 로그 기록 (새벽 작업)
+                    학습노트 보기
                   </button>
                 </div>
               </div>
