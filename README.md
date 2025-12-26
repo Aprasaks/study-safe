@@ -1,16 +1,36 @@
-# React + Vite
+# Study-Safe: Industrial Safety Certification Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Target Deadline: 2026. 01. 31.**
 
-Currently, two official plugins are available:
+## Project Objective
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Complete the 1st round of Industrial Safety Engineer written exam preparation by January 31st through data-driven study logging and AI-powered active recall.
 
-## React Compiler
+## Roadmap & Milestones (Jan 2026)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Managed by weekly sprints to ensure full coverage of the curriculum.
 
-## Expanding the ESLint configuration
+### Sprint 1: Foundation & Planning (Dec 27 - Jan 2)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Scope:** PART 01. Industrial Disaster Prevention & Safety Education
+- **Deliverables:** Setup basic React structure, Define JSON schema for study logs.
+
+### 🏁 Sprint 2: Core Engineering & Human Factors (Jan 3 - Jan 9)
+
+- **Scope:** PART 02. Human Engineering & PART 03. Mechanical Safety
+- **Deliverables:** Visual data integration for safety devices, Implementation of YouTube study log system.
+
+### Sprint 3: High-Risk Management (Jan 10 - Jan 16)
+
+- **Scope:** PART 04. Electrical Safety & PART 05. Chemical Safety
+- **Deliverables:** Calculation module for safety formulas, AI Prompt engineering for risk analysis.
+
+### Sprint 4: Construction Safety & Total Review (Jan 17 - Jan 23)
+
+- **Scope:** PART 06. Construction Safety + Final review of all 6 parts
+- **Deliverables:** Comprehensive summary dashboard, Deployment of the full study-safe site.
+
+### Sprint 5: Quality Assurance (QA) & Mock Exams (Jan 24 - Jan 31)
+
+- **Scope:** Past exam papers & AI-generated quizzes
+- **Deliverables:** "7 AM Review System" fully operational, Final mock test scores audit.
