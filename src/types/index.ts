@@ -3,4 +3,5 @@ export interface StudyTask {
   part: string;
   title: string;
   status: "todo" | "in-progress" | "done";
+  videoUrl?: string;
 }
