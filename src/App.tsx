@@ -1,73 +1,63 @@
-// src/App.tsx
-import React from "react";
+// src/App.tsx 수정
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Calendar from "./components/Calendar";
+import { initialSchedule } from "./data/mockData";
+import { StudyTask } from "./types";
 
 function App() {
+  // 오늘 날짜를 기본 선택값으로 설정 (형식: YYYY-MM-DD)
+  const [selectedDate, setSelectedDate] = useState("2025-12-26");
+
+  // 선택된 날짜에 해당하는 태스크 찾기
+  const currentTask = initialSchedule.find(
+    (task) => task.date === selectedDate
+  ) || {
+    date: selectedDate,
+    part: "휴식 또는 자율학습",
+    title: "지정된 스케줄이 없습니다.",
+    status: "todo",
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans antialiased text-slate-900">
       <Header />
 
       <main className="mx-auto max-w-7xl px-6 py-12">
-        {/* 1. 상단 타이틀 섹션: 전체 너비 사용 */}
         <section className="mb-8">
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl font-extrabold tracking-tight">
             Safety Roadmap
           </h2>
           <p className="mt-2 text-slate-500">
-            12월 26일 시작 — 1월 31일 합격 목표 (구민사 산업안전기사)
+            지정한 날짜를 클릭하여 상세 일정을 확인하세요.
           </p>
         </section>
 
-        {/* 2. 하단 컨텐츠 섹션: 그리드 배치 */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* 왼쪽: 달력 (2컬럼) */}
           <div className="lg:col-span-2">
-            <Calendar />
+            {/* Calendar에 날짜 선택 함수 전달 */}
+            <Calendar
+              onDateSelect={setSelectedDate}
+              selectedDate={selectedDate}
+            />
           </div>
 
-          {/* 오른쪽: 상세 정보 패널 (1컬럼) */}
           <aside className="sticky top-24 space-y-6">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm ring-1 ring-slate-900/5">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-bold text-lg text-slate-800">
-                  Today's Focus
-                </h3>
-                <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
-              </div>
+              <h3 className="font-bold text-lg text-slate-800 mb-4">
+                Task: {selectedDate}
+              </h3>
 
               <div className="space-y-4">
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 group hover:border-blue-200 transition-colors">
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
-                    Part 01. 안전관리론
+                <div className="p-4 bg-slate-50 rounded-xl border border-blue-100">
+                  <p className="text-xs font-bold text-blue-600 uppercase mb-1">
+                    {currentTask.part}
                   </p>
                   <p className="text-sm font-bold text-slate-700 leading-snug">
-                    하인리히/버드 재해 구성 비율 및 중대재해 정의
+                    {currentTask.title}
                   </p>
                 </div>
-
-                <div className="space-y-2">
-                  <button className="w-full py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition-all active:scale-[0.98]">
-                    오늘의 강의 시청
-                  </button>
-                  <button className="w-full py-3 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all">
-                    학습 로그 기록 (JSON)
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* 진척도 카드 추가 (옵션) */}
-            <div className="bg-slate-900 p-6 rounded-2xl text-white shadow-lg">
-              <p className="text-xs font-medium text-slate-400 uppercase">
-                Current Progress
-              </p>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-black">2%</span>
-                <span className="text-slate-400 text-sm">completed</span>
-              </div>
-              <div className="mt-4 h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-500 w-[2%] shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
+                {/* 버튼 등 나머지 UI 그대로 */}
               </div>
             </div>
           </aside>
